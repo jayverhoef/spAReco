@@ -1,0 +1,13 @@
+Package: spAReco 
+VignetteBuilder: knitr
+Maintainer: Jay Ver Hoef <jay.verhoef@noaa.gov>
+License: GPL-2
+Title: Paper on Spatial Autoregressive Models for Ecological Inference
+Type: Package
+LazyLoad: yes
+Author: Jay Ver Hoef
+Description: Package in support of paper on Spatial Autoregressive Models for Ecological Inference
+Version: 1.0
+Date: 2015-9-6
+Depends: MASS, maptools, sp, rgeos, Matrix
+

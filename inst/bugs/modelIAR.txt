@@ -1,0 +1,18 @@
+model
+	{
+		for(i in 1:N) {
+				trend[i] ~ dnorm(mu[i],prec)
+				mu[i] <- beta0 + beta[stockid[i]] + b[i]
+	  }
+		b[1:N] ~ car.normal(adj[], weights[], num[], tau)
+	  beta0 ~ dnorm(0,.001)
+    beta[1] ~ dnorm(0,.001)
+    beta[2] ~ dnorm(0,.001)
+    beta[3] ~ dnorm(0,.001)
+    beta[4] <- 0
+    beta[5] ~ dnorm(0,.001)
+    prec ~ dgamma(0.001,0.001)
+    sigmaEps <- sqrt(1/prec)
+	    tau  ~ dgamma(0.5, 0.0005) 
+	    sigmaZ <- sqrt(1 / tau)		
+	}

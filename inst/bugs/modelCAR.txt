@@ -1,0 +1,18 @@
+model
+	{
+		for(i in 1:N) {
+				trend[i] ~ dnorm(mu[i],1000)
+				mu[i] <- beta0 + beta[stockid[i]] + b[i]
+				muCAR[i] <- 0
+	  }
+	b[1:N] ~ car.proper(muCAR[], C[], adj[], num[], M[], prec, rho)
+	beta0 ~ dnorm(0,.001)
+    beta[1] ~ dnorm(0,.001)
+    beta[2] ~ dnorm(0,.001)
+    beta[3] ~ dnorm(0,.001)
+    beta[4] ~ dnorm(0,100000)
+    beta[5] ~ dnorm(0,.001)
+    prec ~ dgamma(0.5, 0.0005)
+    sigmaZ <- sqrt(1 / prec)	
+	rho ~ dunif(-.99999,.99999)	
+	}

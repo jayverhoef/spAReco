@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: spARecoEM1.aux
+The style file: /home/jay/Data/shTex/shTex/asa.bst
+Database file #1: /home/jay/Data/shTex/shTex/StatBibTex.bib.bib
+You've used 97 entries,
+            2777 wiz_defined-function locations,
+            1286 strings with 24364 characters,
+and the built_in function-call counts, 48562 in all, are:
+= -- 4425
+> -- 2536
+< -- 67
++ -- 946
+- -- 820
+* -- 4664
+:= -- 8543
+add.period$ -- 172
+call.type$ -- 97
+change.case$ -- 658
+chr.to.int$ -- 94
+cite$ -- 97
+duplicate$ -- 2022
+empty$ -- 3414
+format.name$ -- 1124
+if$ -- 9377
+int.to.chr$ -- 4
+int.to.str$ -- 1
+missing$ -- 116
+newline$ -- 296
+num.names$ -- 400
+pop$ -- 748
+preamble$ -- 1
+purify$ -- 656
+quote$ -- 0
+skip$ -- 1343
+stack$ -- 0
+substring$ -- 3110
+swap$ -- 509
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 810
+warning$ -- 0
+while$ -- 447
+width$ -- 0
+write$ -- 1056

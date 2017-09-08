@@ -1,0 +1,7 @@
+export(addBreakColorLegend)
+export(Neighmat)
+export(m2LL)
+export(lmspar)
+export(writeDatafileR)
+import(Matrix)
+
