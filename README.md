@@ -5,13 +5,16 @@
 
 [![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--09-yellowgreen.svg)](/commits/master)
 
-# KrigLinCaution
+# spAReco
 ## An R package in support of publication, "Spatial Autoregressive Models for Statistical Inference from Ecological Data." 
 
-#### Jay M. Ver Hoef<sup>a</sup>, Erin E. Peterson<sup>b</sup>
+#### Jay M. Ver Hoef<sup>a</sup>, Erin E. Peterson<sup>b</sup>, Mevin B. Hooten<sup>c</sup>, Ephraim M. Hanks<sup>d</sup>, and Marie-Josee Fortin<sup>e</sup>
 
-#### <sup>a</sup>NOAA Fisheries (NMFS) Alaska Fisheries Science Center 
+#### <sup>a</sup>NOAA Fisheries (NMFS) Alaska Fisheries Science Center, Marine Mammal Laboratory
 #### <sup>b</sup>ARC Centre for Excellence in Mathematical and Statistical Frontiers (ACEMS) and the Institute for Future Environments, Queensland University of Technology
+#### <sup>c</sup>U.S. Geological Survey, Colorado Cooperative Fish and Wildlife Research Unit, Department of Fish, Wildlife, and Conservation Biology, Department of Statistics, Colorado State University
+#### <sup>d</sup>Department of Statistics, The Pennsylvania State University
+#### <sup>e</sup>Department of Ecology and Evolutionary Biology, University of Toronto
 
 As a scientific work, and in keeping with common scientific practicies, I kindly request that you cite my research project and applicable publications if you use my work(s) or data in your publications or presentations. Additionally, I strongly encourage and welcome collaboration to promote use of these data in the proper context and scope.  The publication is currently submitted:
 
