@@ -1,7 +1,7 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-[![DOI](https://zenodo.org/badge/102904518.svg)](https://zenodo.org/badge/latestdoi/102904518)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1035939.svg)](https://doi.org/10.5281/zenodo.1035939)
 
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1.1-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/kotzeb0912)](https://cran.r-project.org/package=kotzeb0912) [![packageversion](https://img.shields.io/badge/Package%20version-1.0-orange.svg?style=flat-square)](commits/master)
 
