@@ -1,0 +1,260 @@
+%\VignetteEngine{knitr::knitr}
+% some terminal commands to copy once and scroll when needed
+% cd '/mnt/Hitachi2GB/00NMML/activePapers/spAReco/spAReco_package/spAReco/inst/doc'
+% pdflatex S1
+% bibtex S1
+
+\documentclass[11pt, titlepage]{article}\usepackage[]{graphicx}\usepackage[]{color}
+
+\usepackage{alltt}
+\usepackage{geometry}
+\geometry{verbose,letterpaper,tmargin=2.54cm,bmargin=2.54cm,lmargin=2.54cm,rmargin=2.54cm}
+\usepackage{graphicx, ams, amsmath, amssymb, natbib, setspace}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+\usepackage{relsize}
+\usepackage{subfigure}
+\usepackage{pgf}
+\usepackage{mymacros}
+\usepackage{bbding}
+\usepackage{lineno}
+\usepackage{fancyvrb}
+\usepackage[shortlabels]{enumitem}
+\setlength{\parindent}{3em} 
+%\onehalfspacing
+\onehalfspacing
+\usepackage{lipsum}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\singlespacing}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\setlength{\oddsidemargin}{0.0in} \setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0.15in} \setlength{\textheight}{8.5in}
+\setlength{\headheight}{0.0in} \setlength{\headsep}{0.0in}
+
+%\renewcommand\tagform@[1]{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
+\makeatother
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% 			TITLE
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+
+\titlepage
+\title {\textbf{Appendix S1} \\ Spatial Autoregressive Models for Statistical Inference from Ecological Data}
+\author{Jay M. Ver Hoef$^1$, Erin E. Peterson$^2$, Mevin B. Hooten$^3$, Ephraim M. Hanks$^4$, and \\
+	Marie-Jos\'{e}e Fortin$^5$ \\
+\hrulefill \\ 
+$^1$Marine Mammal Laboratory, NOAA-NMFS Alaska Fisheries Science Center\\
+7600 Sand Point Way NE, Seattle, WA 98115\\
+tel: (907) 456-1995 \hspace{.5cm} E-mail: jay.verhoef@noaa.gov\\
+$^2$ ARC Centre for Excellence in Mathematical and Statistical Frontiers (ACEMS) and \\
+the Institute for Future Environments, Queensland University of Technology \\ 
+$^3$ U.S. Geological Survey, Colorado Cooperative Fish and Wildlife Research Unit, \\
+Department of Fish, Wildlife, and Conservation Biology \\
+Department of Statistics, Colorado State University \\
+$^4$ Department of Statistics, The Pennsylvania State University \\
+$^5$ Department of Ecology and Evolutionary Biology, University of Toronto \\
+\hrulefill \\
+}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------------------------
+%          Appendix S1: Misconceptions and Errors in the Literature
+%------------------------------------------------------------------------------
+
+\clearpage
+\setcounter{equation}{0}
+\renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\section*{Misconceptions and Errors in the Literature}
+
+The fact that CAR and SAR models are developed from the precision matrix, in contrast to geostatistical models being developed for the covariance matrix, has caused some confusion in the ecological literature.  For example, in comparing geostatistical models to SAR models, \citet{Begu:Puey:comp:2009} stated ``Semivariogram models account for spatial autocorrelation \emph{at all possible distance lags}, and thus they do not require \emph{a priori} specification of the window size and the covariance structure,'' (emphasis by the original authors).  CAR and SAR models also account for spatial autocorrelation at all possible lags, as seen in Fig. 9c,d, of the main article.  In a temporal analogy, the autoregressive AR1 time series models also account for autocorrelation at all possible lags, where the conditional specification $Z_{i+1} = \phi Z_i + \nu_i$, with $\nu_i$ an independent random shock and $|\phi| < 1$, implies that $\corr(Z_{i},Z_{i+t}) = \phi^t$ for all $t$.  In fact, if we restrict $0 < \phi < 1$, then this can be reparameterized as $\corr(Z_{i},Z_{i+t}) = \exp(-t(-\log(\phi)))$, which is an exponential geostatistical model with range parameter $-\log(\phi)$.  While there are interesting results in \citet{Begu:Puey:comp:2009}, a restriction on the range of autocorrelation is not a reason that CAR/SAR models might perform poorly against a geostatistical model.  The important concept is that the autoregressive specification is local in the precision matrix and not in the covariance matrix.
+
+CAR models are often incorrectly characterized.  For example, \citet{Keit:Bjor:Dixo:Citr:acco:2002} characterized CAR models as: $\bY = \bX\bbeta + \rho\bC(\bY - \bX\bbeta) + \bvarepsilon$, with a stated covariance matrix of $\sigma^2(\bI - \rho\bC)\upi$, where $\bC$ is symmetric. Their actual implementation may have been correct, and there are excellent and important results in \citet{Keit:Bjor:Dixo:Citr:acco:2002}; however, the construction they used leads to a SAR covariance matrix of $\sigma^2(\bI - \rho\bC)\upi(\bI - \rho\bC)\upi$ if $\var(\bvarepsilon) = \sigma^2\bI$ and $\bC$ is symmetric. Even to characterize a CAR model as $\sigma^2(\bI - \rho\bC)\upi$ with symmetric $\bC$ is overly restrictive, as we have demonstrated that an asymmetric $\bC$ with the proper $\bM$ will still satisfy Eq. 12, or alternatively that $\bSigma\upi = (\bM\upi - \bC)/\sigma^2$, where $\bC$ is symmetric but $\bM\upi$ is not necessarily constant on the diagonals. In fact, constraining a CAR model to $\sigma^2(\bI - \rho\bC)\upi$ does not allow for row-standardized models.  These mistakes are perpetuated in \citet{Dorm:etal:meth:2007}, and we have seen similar errors in describing CAR models as SAR models in other literature, presentations, and help sites on the internet. 
+
+\citet{Dorm:etal:meth:2007} also claimed that any SAR model is a CAR model, which agrees with the literature \citep[e.g.,][p. 409]{Cres:stat:1993}, but then they show an incorrect proof (it is also incorrect in \citet[][p. 89]{Hain:spat:1990}, and likely beginning there), because they do not consider that $\bC$ for a CAR model must have zeros along the diagonal.  In fact, we demonstrate in \citet{Ver:Hank:Hoot:2017} that, despite statistical and ecological literature to the contrary, CAR models and SAR models can be written equivalently, and we provide details.
+
+\section*{Maximum Likelihood Estimation for CAR/SAR Models with Missing Data}
+
+We begin by finding analytical solutions when we can, and then substituting them into the likelihood to reduce the number of parameters as much as possible for the full covariance matrix.  Assume a linear model,
+\[
+  \by = \bX\bbeta + \bvarepsilon,
+\]
+where $\by$ is a vector of response variables, $\bX$ is a design matrix of full rank, $\bbeta$ is a vector of parameters, and the zero-mean random errors have a multivariate normal distribution, $\bvarepsilon \sim \textrm{N}(\bzero,\bSigma)$, where $\bSigma$ is a patterned covariance matrix; i.e., it has non-zero off-diagonal elements.  Suppose that $\bSigma$ has parameters $\{\theta,\brho\}$ and can be written as $\bSigma = \theta\bV_{\brho}$, where $\theta$ is an overall variance parameter and $\brho$ are parameters that structure $\bV_{\brho}$ as a non-diagonal matrix, and we show the dependency as a subscript. Note that $\bSigma\upi = \bV\upi_{\brho}/\theta$. Recall that the maximum likelihood estimate of $\bbeta$ for any $\{\theta,\brho\}$ is $\hat{\bbeta} = (\bX\upp\bV\upi_{\brho}\bX)\upi\bX\bV\upi_{\brho}\by$. By substituting $\hat{\bbeta}$ into the normal likelihood equations, $-2$ times the log-likelihood for a normal distribution is
+\[
+  \cL(\theta,\brho|\by) = (\by - \bX\hat{\bbeta})\upp\bSigma\upi(\by - \bX\hat{\bbeta}) + \log(|\bSigma|) + n\log(2\pi),
+\]
+where $n$ is the length of $\by$, but this can be written as,
+\begin{equation}\label{eq:MVNloglike}
+\cL(\theta,\brho|\by) = \br_{\brho}\upp\bV\upi_{\brho}\br_{\brho}/\theta + n\log(\theta) + \log(|\bV|) + n\log(2\pi)
+\end{equation}
+where $\br_{\brho} = (\by - \bX\hat{\bbeta})$ (notice that $\hat{\bbeta}$ is a function of $\brho$, so we show that dependency for $\br$ as well).  Conditioning on $\brho$ yields 
+\[
+\cL(\theta|\brho,\by) = \br_{\brho}\upp\bV\upi_{\brho}\br_{\brho}/\theta + n\log(\theta)+ \textrm{terms not containing } \theta
+\]
+and minimizing (analytically) for $\theta$ involves setting
+\[
+\frac{\partial \cL(\theta|\brho,\by)}{\partial \theta} = -\br\upp_{\brho}\bV\upi_{\brho}\br_{\brho}/\theta^2 + n/\theta
+\]
+equal to zero, yielding the maximum likelihood estimate
+\begin{equation}\label{eq:MLEtheta}
+ \hat{\theta} = \br\upp_{\brho}\bV\upi_{\brho}\br_{\brho}/n.
+\end{equation}
+Substituting Eq. \ref{eq:MLEtheta} back into Eq. \ref{eq:MVNloglike} yields the -2*log-likelihood as a function of $\brho$ only,
+\begin{equation}\label{eq:MVNrhoOnly}
+\cL(\brho|\by) = n\log(\br\upp_{\brho}\bV\upi_{\brho}\br_{\brho}) + \log(|\bV_{\brho}|) + n(\log(2\pi) + 1 - \log(n)). 
+\end{equation}
+Equation Eq. \ref{eq:MVNrhoOnly} can be minimized numerically to yield the MLE $\hat{\brho}$, and then $\hat{\theta} = \br\upp_{\hat{\brho}}\bV\upi_{\hat{\brho}}\br_{\hat{\brho}}/n$, and  $\hat{\bbeta} = (\bX\upp\bV\upi_{\hat{\brho}}\bX)\upi\bX\bV\upi_{\hat{\brho}}\by$ yield analytical solutions for MLEs after obtaining (numerically) the MLE for $\brho$.
+
+We developed the inverse covariance matrix $\bSigma_A\upi = \textrm{diag}(\bW\bone) - \rho\bW$, and here we use $\bSigma_A$ to denote it is for \emph{all} locations, those with observed data as well as those without. Without missing data, Eq. \ref{eq:MVNrhoOnly} can be evaluated quickly by factoring out an overall variance parameter from $\bSigma_A\upi$ and using sparse matrix methods to quickly and efficiently evaluate $|\bV_{\brho}|$ by recalling that $|\bV_{\brho}|$ = $1/|\bV\upi_{\brho}|$.  However, when there are missing data, there is no guarantee that $\bV_{\brho}$ will be sparse.  The obvious and direct approach is to first obtain $\bSigma_A = (\bSigma_A\upi)\upi$, and then obtain $\bV_{\brho} = \bSigma[\bi,\bi]$, where $\bi$ is a vector of indicators that subsets the rows and columns of $\bSigma$ to only those for sampled locations.  Then, a third step is a second inverse to find $\bV_{\brho}\upi$.  However, this is computationally expensive.  A faster way uses results from partitioned matrices and Schur complements.  In general, let the square matrix $\bSigma$ with dimensions $(m + n) \times (n + m)$ be partitioned into block submatrices,
+\[
+  \underset{(m+n) \times (m+n)}{\bSigma} = \left[
+    \begin{array}{cc}
+	    \underset{m \times m}{\bA} & \underset{m \times n}{\bB} \\
+	    \underset{n \times m}{\bC} & \underset{n \times n}{\bD}
+    \end{array}
+  \right]
+\]
+with dimensions given below each matrix. Assume $\bA$ and $\bD$ are nonsingular.  Then define the matrix function $\bS(\bSigma,\bA) = \bD - \bC\bA\upi\bB$ as the Schur complement of $\bSigma$ with respect to $\bA$.  Likewise, there is a Schur complement with respect to $\bD$ by reversing the roles of $\bA$ and $\bD$.  Using Schur complements, it is well-known \citep[e.g.,][p. 97]{Harv:matr:1997} that an inverse for a partitioned matrix $\bSigma$ is,
+\[
+  \bSigma\upi = \left[
+    \begin{array}{cc}
+      \bA\upi + \bA\upi\bB\bS(\bSigma,\bA)\upi\bC\bA\upi & -\bA\upi\bB\bS(\bSigma,\bA)\upi \\
+      -\bS(\bSigma,\bA)\upi\bC\bA\upi & \bS(\bSigma,\bA)\upi
+    \end{array}
+  \right]
+\]
+Then, note that $\bA\upi = \bS(\bSigma\upi, \bS(\bSigma,\bA)\upi)$; that is, if we already have $\bSigma\upi$, then $\bA\upi$ is the Schur complement of $\bSigma\upi$ with respect to the rows and columns that correspond to $\bD$.  Additionally, the largest matrix that we have to invert is $[\bS(\bSigma,\bA)\upi]\upi$, which is $n \times $n and has dimension less than $\bSigma$, and only one inverse is required. Thus, if we let $\bA$ correspond to the $m$ rows and columns of the observed locations, and $\bD$ correspond to the $n$ rows and columns of the missing data, then this provides a quick and efficient way to obtain $\bV_{\brho}\upi$ from $\bSigma_A\upi$, and the largest inverse required is of dimension $n \times n$, where $n$ is the number of sites with missing data.
+
+\section*{Prediction and Smoothing}
+
+In what follows, we provide the formulas used in creating Fig.~8.  For universal kriging, the formulas can be found in \citet[][p. 148]{Cres:Wikl:stat:2011},
+\[
+				\hat{y}_i = \bx_i\upp\hat{\bbeta} + \bc_i\bSigma\upi_{-i}(\by_{-i} - \bX\hat{\bbeta})
+\]
+where $\hat{y}_i$ is the prediction for the $i$th node, $\bx_i$ is a vector containing the covariate values for the $i$th node, $\bX$ is the design matrix for the covariates (fixed effects), $\bc_i$ is a vector containing the fitted covariance between the $i$th site and all \emph{other} sites with observed data, $\bSigma$ is the fitted covariance matrix among all observed data, $\by$ is a vector of observed values for the response variable, and $\hat{\bbeta} = \bX\upp(\bX\upp\bSigma\upi\bX)\upi\bX\upp\bSigma\upi\by$ is the generalized least squares estimate of $\bbeta$.  The covariance values contained in $\bc_i$ and $\bSigma$ were obtained using maximum likelihood estimate for the parameters as detailed in Appendix B.  We include the $-i$ subscript on $\bSigma\upi_{-i}$ and $\by_{-i}$ to indicate that, when smoothing, we predict at the $i$th node by removing that datum from $\by$, and by removing its corresponding rows and columns in $\bSigma$.  If the value is missing, then prediction proceeds using all observed values.  Hence, Fig.~8a contains the observed values plus the predicted values at nodes with missing values, while Fig.~8c contains predicted values at all nodes, where any observed value at a node was removed and predicted with the rest of the observed values.  The prediction standard errors are given by,
+\[
+	\hat{\textrm{se}}(\hat{y}_i) = \sqrt{\bc_i\upp\bSigma\upi_{-i}\bc_i + 
+	  \bd_i\upp(\bX_{-i}\upp\bSigma\upi_{-i}\bX_{-i})\upi \bd_i}
+\]
+where $\bd_i = \bx_i\upp - \bX_{-i}\upp\bSigma\upi_{-i}\bc_i$.
+
+For the IAR model smoothing in Fig.~8d, we used the WinBUGS \citep{Lunn:Thom:Best:Spie:winb:2000} software, final version 1.4.3.  The model code is very compact and given below:
+\begin{Verbatim}[baselinestretch=0.75]
+model
+  {
+    for(i in 1:N) {
+      trend[i] ~ dnorm(mu[i],prec)
+      mu[i] <- beta0 + beta[stockid[i]] + b[i]
+	  }
+    b[1:N] ~ car.normal(adj[], weights[], num[], tau)
+    beta0 ~ dnorm(0,.001)
+    beta[1] ~ dnorm(0,.001)
+    beta[2] ~ dnorm(0,.001)
+    beta[3] ~ dnorm(0,.001)
+    beta[4] <- 0
+    beta[5] ~ dnorm(0,.001)
+    prec ~ dgamma(0.001,0.001)
+    sigmaEps <- sqrt(1/prec)
+    tau  ~ dgamma(0.5, 0.0005) 
+    sigmaZ <- sqrt(1 / tau)		
+  }
+\end{Verbatim}
+The means of the MCMC samples from the posterior distributions of \texttt{mu[i]} were used for the IAR smoothing for the $i$th location in Fig.~8d.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\bibliographystyle{/mnt/Hitachi2GB/shTex/asa}
+%\bibliography{/mnt/Hitachi2GB/shTex/StatBibTex.bib}
+\begin{thebibliography}{9}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Beguer{\'\i}a and Pueyo(2009)}]{Begu:Puey:comp:2009}
+Beguer{\'\i}a, S. and Pueyo, Y. (2009), \enquote{A comparison of simultaneous
+  autoregressive and generalized least squares models for dealing with spatial
+  autocorrelation,} \textit{Global Ecology and Biogeography}, 18, 273--279.
+
+\bibitem[{Cressie and Wikle(2011)}]{Cres:Wikl:stat:2011}
+Cressie, N. and Wikle, C.~K. (2011), \textit{Statistics for Spatio-temporal
+  Data}, Hoboken, New Jersey: John Wiley \& Sons.
+
+\bibitem[{Cressie(1993)}]{Cres:stat:1993}
+Cressie, N. A.~C. (1993), \textit{Statistics for Spatial Data, Revised
+  Edition}, New York: John Wiley \& Sons.
+
+\bibitem[{Dormann et~al.(2007)Dormann, McPherson, Ara{\'u}jo, Bivand, Bolliger,
+  Carl, Davies, Hirzel, Jetz, Kissling, K{\"u}hn, Ohlem{\"u}ller, Peres-Neto,
+  Reineking, Schr{\"o}der, Schurr, and Wilson}]{Dorm:etal:meth:2007}
+Dormann, C.~F., McPherson, J.~M., Ara{\'u}jo, M.~B., Bivand, R., Bolliger, J.,
+  Carl, G., Davies, R.~G., Hirzel, A., Jetz, W., Kissling, W.~D., K{\"u}hn, I.,
+  Ohlem{\"u}ller, R., Peres-Neto, P.~R., Reineking, B., Schr{\"o}der, B.,
+  Schurr, F.~M., and Wilson, R. (2007), \enquote{Methods to account for spatial
+  autocorrelation in the analysis of species distributional data: a review,}
+  \textit{Ecography}, 30, 609--628.
+
+\bibitem[{Haining(1990)}]{Hain:spat:1990}
+Haining, R. (1990), \textit{Spatial Data Analysis in the Social and
+  Environmental Sciences}, Cambridge, UK: Cambridge University Press.
+
+\bibitem[{Harville(1997)}]{Harv:matr:1997}
+Harville, D.~A. (1997), \textit{Matrix Algebra from a Statistician's
+  Perspective}, New York, NY: Springer.
+
+\bibitem[{Keitt et~al.(2002)Keitt, Bj{\o}rnstad, Dixon, and
+  Citron-Pousty}]{Keit:Bjor:Dixo:Citr:acco:2002}
+Keitt, T.~H., Bj{\o}rnstad, O.~N., Dixon, P.~M., and Citron-Pousty, S. (2002),
+  \enquote{Accounting for spatial pattern when modeling organism-environment
+  interactions,} \textit{Ecography}, 25, 616--625.
+
+\bibitem[{Lunn et~al.(2000)Lunn, Thomas, Best, and
+  Spiegelhalter}]{Lunn:Thom:Best:Spie:winb:2000}
+Lunn, D.~J., Thomas, A., Best, N., and Spiegelhalter, D. (2000),
+  \enquote{WinBUGS -- A Bayesian modelling framework: concepts, structure, and
+  extensibility,} \textit{Statistics and Computing}, 10, 325--337.
+
+\bibitem[{Ver~Hoef et~al.(2017)Ver~Hoef, Hanks, and
+  Hooten}]{Ver:Hank:Hoot:2017}
+Ver~Hoef, J.~M., Hanks, E.~M., and Hooten, M.~B. (2017), \enquote{On the
+  relationship between conditional (CAR) and simultaneous (SAR) autoregressive
+  models,} \textit{arXiv}, 1710.07000v1, 1--18.
+
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%            %%%%%%%    %%%%%%%%  %%%%%%%       %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %  %%%%%%%  %%%%%%%  %%%%  %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%  %%%%%%  %%%%%%%  %%%%%%  %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%  %%%%%  %%%%%%%  %%%%%%%   %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%            %%%%%%%  %%%%  %%%%  %%%%%%%  %%%%%%%%  %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%  %%%  %%%%%%%  %%%%%%%   %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%  %%  %%%%%%%  %%%%%%  %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%  %  %%%%%%%  %%%%  %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%            %%%%%%%  %%%%%%%%    %%%%%%%       %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+

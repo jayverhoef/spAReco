@@ -51,18 +51,22 @@
 \def\bX{\mathbf{X}}
 \def\bY{\mathbf{Y}}
 \def\bZ{\mathbf{Z}}
+\def\cA{\mathcal{A}}
 \def\cB{\mathcal{B}}
+\def\cD{\mathcal{D}}
 \def\cF{\mathcal{F}}
+\def\cH{\mathcal{H}}
 \def\cI{\mathcal{I}}
 \def\cK{\mathcal{K}}
 \def\cL{\mathcal{L}}
 \def\cN{\mathcal{N}}
 \def\cR{\mathcal{R}}
+\def\cS{\mathcal{S}}
 \def\cU{\mathcal{U}}
 \def\bzero{\mathbf{0}}
 \def\bone{\mathbf{1}}
 \def\balpha{\mbox{\boldmath $\alpha$}}
-\def\bbeta{\mbox{\boldmath $\beta$}}
+\newcommand{\bbeta}{\ensuremath{{\boldsymbol{\beta}}}}
 \def\bchi{\mbox{\boldmath $\chi$}}
 \def\bdelta{\mbox{\boldmath $\delta$}}
 \def\bepsilon{\mbox{\boldmath $\epsilon$}}
@@ -72,12 +76,12 @@
 \def\bphi{\mbox{\boldmath $\phi$}}
 \def\bgamma{\mbox{\boldmath $\gamma$}}
 \def\bkappa{\mbox{\boldmath $\kappa$}}
-\def\blambda{\mbox{\boldmath $\lambda$}}
+\newcommand{\blambda}{\ensuremath{{\boldsymbol{\lambda}}}}
 \def\bmu{\mbox{\boldmath $\mu$}}
 \def\bnu{\mbox{\boldmath $\nu$}}
 \def\bpi{\mbox{\boldmath $\pi$}}
 \def\btheta{\mbox{\boldmath $\theta$}}
-\def\brho{\mbox{\boldmath $\rho$}}
+\newcommand{\brho}{\ensuremath{{\boldsymbol{\rho}}}}
 \def\bsigma{\mbox{\boldmath $\sigma$}}
 \def\btau{\mbox{\boldmath $\tau$}}
 \def\bomega{\mbox{\boldmath $\omega$}}
@@ -88,6 +92,10 @@
 \def\bLambda{\mbox{\boldmath $\Lambda$}}
 \def\bSigma{\mbox{\boldmath $\Sigma$}}
 \def\bOmega{\mbox{\boldmath $\Omega$}}
+\newcommand{\hbbeta}{\ensuremath{{\hat{\boldsymbol{\beta}}}}}
+\newcommand{\hbphi}{\ensuremath{{\hat{\boldsymbol{\phi}}}}}
+\newcommand{\hblambda}{\ensuremath{{\hat{\boldsymbol{\lambda}}}}}
+\newcommand{\tr}{{\intercal}}
 \def\var{\textrm{var}}
 \def\cov{\textrm{cov}}
 \def\cor{\textrm{cor}}
@@ -95,10 +103,18 @@
 \def\txtE{\textrm{E}}
 \def\log{\textrm{log}}
 \def\median{\textrm{median}}
-\def\argmin{\textrm{arg min }}
 \def\Poi{\textrm{Poi}}
 \def\Unif{\textrm{Unif}}
 \def\logit{\textrm{logit}}
 \def\upp{^{\prime}}
 \def\upi{^{-1}}
-
+\def\ups{^*}
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bit{\begin{itemize}}
+\def\eit{\end{itemize}}
+\def\bdm{\begin{displaymath}}
+\def\edm{\end{displaymath}}
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+\DeclareMathOperator*{\argmin}{arg\!\min}

@@ -1,0 +1,54 @@
+\begin{thebibliography}{9}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Beguer{\'\i}a and Pueyo(2009)}]{Begu:Puey:comp:2009}
+Beguer{\'\i}a, S. and Pueyo, Y. (2009), \enquote{A comparison of simultaneous
+  autoregressive and generalized least squares models for dealing with spatial
+  autocorrelation,} \textit{Global Ecology and Biogeography}, 18, 273--279.
+
+\bibitem[{Cressie and Wikle(2011)}]{Cres:Wikl:stat:2011}
+Cressie, N. and Wikle, C.~K. (2011), \textit{Statistics for Spatio-temporal
+  Data}, Hoboken, New Jersey: John Wiley \& Sons.
+
+\bibitem[{Cressie(1993)}]{Cres:stat:1993}
+Cressie, N. A.~C. (1993), \textit{Statistics for Spatial Data, Revised
+  Edition}, New York: John Wiley \& Sons.
+
+\bibitem[{Dormann et~al.(2007)Dormann, McPherson, Ara{\'u}jo, Bivand, Bolliger,
+  Carl, Davies, Hirzel, Jetz, Kissling, K{\"u}hn, Ohlem{\"u}ller, Peres-Neto,
+  Reineking, Schr{\"o}der, Schurr, and Wilson}]{Dorm:etal:meth:2007}
+Dormann, C.~F., McPherson, J.~M., Ara{\'u}jo, M.~B., Bivand, R., Bolliger, J.,
+  Carl, G., Davies, R.~G., Hirzel, A., Jetz, W., Kissling, W.~D., K{\"u}hn, I.,
+  Ohlem{\"u}ller, R., Peres-Neto, P.~R., Reineking, B., Schr{\"o}der, B.,
+  Schurr, F.~M., and Wilson, R. (2007), \enquote{Methods to account for spatial
+  autocorrelation in the analysis of species distributional data: a review,}
+  \textit{Ecography}, 30, 609--628.
+
+\bibitem[{Haining(1990)}]{Hain:spat:1990}
+Haining, R. (1990), \textit{Spatial Data Analysis in the Social and
+  Environmental Sciences}, Cambridge, UK: Cambridge University Press.
+
+\bibitem[{Harville(1997)}]{Harv:matr:1997}
+Harville, D.~A. (1997), \textit{Matrix Algebra from a Statistician's
+  Perspective}, New York, NY: Springer.
+
+\bibitem[{Keitt et~al.(2002)Keitt, Bj{\o}rnstad, Dixon, and
+  Citron-Pousty}]{Keit:Bjor:Dixo:Citr:acco:2002}
+Keitt, T.~H., Bj{\o}rnstad, O.~N., Dixon, P.~M., and Citron-Pousty, S. (2002),
+  \enquote{Accounting for spatial pattern when modeling organism-environment
+  interactions,} \textit{Ecography}, 25, 616--625.
+
+\bibitem[{Lunn et~al.(2000)Lunn, Thomas, Best, and
+  Spiegelhalter}]{Lunn:Thom:Best:Spie:winb:2000}
+Lunn, D.~J., Thomas, A., Best, N., and Spiegelhalter, D. (2000),
+  \enquote{WinBUGS -- A Bayesian modelling framework: concepts, structure, and
+  extensibility,} \textit{Statistics and Computing}, 10, 325--337.
+
+\bibitem[{Ver~Hoef et~al.(2017)Ver~Hoef, Hanks, and
+  Hooten}]{Ver:Hank:Hoot:2017}
+Ver~Hoef, J.~M., Hanks, E.~M., and Hooten, M.~B. (2017), \enquote{On the
+  relationship between conditional (CAR) and simultaneous (SAR) autoregressive
+  models,} \textit{arXiv}, 1710.07000v1, 1--18.
+
+\end{thebibliography}

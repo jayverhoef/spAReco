@@ -1,9 +1,11 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
+https://zenodo.org/badge/DOI/10.5281/zenodo.1035940.svg
+
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1.1-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/kotzeb0912)](https://cran.r-project.org/package=kotzeb0912) [![packageversion](https://img.shields.io/badge/Package%20version-1.0-orange.svg?style=flat-square)](commits/master)
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--09--08-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--10--24-yellowgreen.svg)](/commits/master)
 
 # spAReco
 ## An R package in support of publication, "Spatial Autoregressive Models for Statistical Inference from Ecological Data." 
@@ -18,7 +20,7 @@
 
 As a scientific work, and in keeping with common scientific practicies, I kindly request that you cite my research project and applicable publications if you use my work(s) or data in your publications or presentations. Additionally, I strongly encourage and welcome collaboration to promote use of these data in the proper context and scope.  The publication is currently submitted:
 
-#### Ver Hoef, J. M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M-J. Spatial Autoregressive Models for Statistical Inference from Ecological Data. Submitted to *Ecological Monographs*.
+#### Ver Hoef, J. M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M-J. Spatial Autoregressive Models for Statistical Inference from Ecological Data. In press, *Ecological Monographs*.
 
 
 Abstract
